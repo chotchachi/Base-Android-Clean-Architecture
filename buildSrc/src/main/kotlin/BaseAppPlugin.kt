@@ -76,27 +76,6 @@ class BaseAppPlugin : Plugin<Project> {
     }
 }
 
-private fun Project.enableParcelize(enabled: Boolean) {
-    if (enabled) {
-        plugins.apply("kotlin-parcelize")
-    }
-}
-
-private fun Project.enableKotlinxSerialization(enable: Boolean) {
-    if (enable) {
-        plugins.apply("kotlinx-serialization")
-    }
-}
-
-private fun Project.configKotlinOptions() {
-    tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = VERSION_1_8.toString()
-            freeCompilerArgs = freeCompilerArgs + listOf("-Xopt-in=kotlin.RequiresOptIn")
-        }
-    }
-}
-
 private fun Project.configAndroidLibrary() = libraryExtension.run {
     buildToolsVersion = Versions.sdk.buildTools
     compileSdk = Versions.sdk.compile
@@ -140,9 +119,6 @@ private fun Project.configAndroidApplication() = appExtension.run {
         minSdk = Versions.sdk.min
         targetSdk = Versions.sdk.target
 
-//        versionCode = appConfig.versionCode
-//        versionName = appConfig.versionName
-
         multiDexEnabled = AppConfig.multiDexEnabled
         vectorDrawables.useSupportLibrary = AppConfig.useSupportLibrary
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -154,7 +130,7 @@ private fun Project.configAndroidApplication() = appExtension.run {
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
-            isDebuggable = true
+            isDebuggable = false
 
             manifestPlaceholders(
                 mapOf(
@@ -186,5 +162,26 @@ private fun Project.configAndroidApplication() = appExtension.run {
 
     lintOptions {
         isCheckReleaseBuilds = false
+    }
+}
+
+private fun Project.enableParcelize(enabled: Boolean) {
+    if (enabled) {
+        plugins.apply("kotlin-parcelize")
+    }
+}
+
+private fun Project.enableKotlinxSerialization(enable: Boolean) {
+    if (enable) {
+        plugins.apply("kotlinx-serialization")
+    }
+}
+
+private fun Project.configKotlinOptions() {
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            jvmTarget = VERSION_1_8.toString()
+            freeCompilerArgs = freeCompilerArgs + listOf("-Xopt-in=kotlin.RequiresOptIn")
+        }
     }
 }

@@ -1,15 +1,29 @@
+import io.github.reactivecircus.appversioning.toSemVer
+
 plugins {
     `base-app-plugin`
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("androidx.navigation.safeargs")
+    id("io.github.reactivecircus.app-versioning") version "1.1.2"
 }
 
 baseApp {
     viewBinding = true
     parcelize = true
     kotlinxSerialization = true
+}
+
+appVersioning {
+    overrideVersionCode { gitTag, _, _ ->
+        val semVer = gitTag.toSemVer()
+        semVer.major * 1000000 + semVer.minor * 1000 + semVer.patch
+    }
+
+    overrideVersionName { gitTag, _, _ ->
+        gitTag.rawTagName
+    }
 }
 
 dependencies {
@@ -50,12 +64,12 @@ dependencies {
     implementation(Dependencies.androidX.lifecycle.common)
     kapt(Dependencies.androidX.lifecycle.compiler)
 
+    implementation(Dependencies.koin.core)
+    implementation(Dependencies.koin.android)
+
 //    implementation(deps.androidX.room.runtime)
 //    kapt(deps.androidX.room.compiler)
 //    implementation(deps.androidX.room.ktx)
-
-    implementation(Dependencies.koin.core)
-    implementation(Dependencies.koin.android)
 
 //    implementation(deps.retrofit.retrofit)
 
