@@ -29,8 +29,8 @@ appVersioning {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-//    implementation(project(deps.module.domain))
-//    implementation(project(deps.module.data))
+    implementation(project(Dependencies.module.domain))
+    implementation(project(Dependencies.module.data))
 
     coreLibraryDesugaring(Dependencies.desugarJdk)
 
@@ -67,20 +67,20 @@ dependencies {
     implementation(Dependencies.koin.core)
     implementation(Dependencies.koin.android)
 
-//    implementation(deps.androidX.room.runtime)
-//    kapt(deps.androidX.room.compiler)
-//    implementation(deps.androidX.room.ktx)
+//    implementation(Dependencies.androidX.room.runtime)
+//    kapt(Dependencies.androidX.room.compiler)
+//    implementation(Dependencies.androidX.room.ktx)
 
-//    implementation(deps.retrofit.retrofit)
+//    implementation(Dependencies.retrofit.retrofit)
 
-//    implementation(deps.glide.glide)
-//    kapt(deps.glide.compiler)
-//    implementation(deps.glide.integration) { exclude(group = "glide-parent") }
+//    implementation(Dependencies.glide.glide)
+//    kapt(Dependencies.glide.compiler)
+//    implementation(Dependencies.glide.integration) { exclude(group = "glide-parent") }
 
-//    implementation(deps.multidex)
-//    implementation(deps.okhttp3)
-//    implementation(deps.loggingInterceptor)
-//    implementation(deps.javaxApi)
-//    implementation(deps.timber)
-//    implementation(deps.kotlinxSerializationConverter)
+//    implementation(Dependencies.multidex)
+//    implementation(Dependencies.okhttp3)
+//    implementation(Dependencies.loggingInterceptor)
+//    implementation(Dependencies.javaxApi)
+//    implementation(Dependencies.timber)
+//    implementation(Dependencies.kotlinxSerializationConverter)
 }
