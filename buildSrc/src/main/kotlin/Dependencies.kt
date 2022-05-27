@@ -3,6 +3,7 @@
  */
 object Dependencies {
     object module {
+        const val baseUI = ":baseUI"
         const val domain  = ":domain"
         const val data = ":data"
     }

@@ -29,6 +29,7 @@ appVersioning {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
+    implementation(project(Dependencies.module.baseUI))
     implementation(project(Dependencies.module.domain))
     implementation(project(Dependencies.module.data))
 
