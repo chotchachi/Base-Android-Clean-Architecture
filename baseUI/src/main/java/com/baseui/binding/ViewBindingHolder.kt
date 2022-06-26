@@ -16,6 +16,8 @@ interface ViewBindingHolder<ViewBindingType : ViewBinding> {
     ): View
 
     fun requireBinding(block: (ViewBindingType.() -> Unit)? = null): ViewBindingType
+
+    val binding: ViewBindingType
 }
 
 class ViewBindingHolderImpl<ViewBindingType : ViewBinding> :
@@ -26,7 +28,7 @@ class ViewBindingHolderImpl<ViewBindingType : ViewBinding> :
 
     private lateinit var className: String
 
-    val binding: ViewBindingType
+    override val binding: ViewBindingType
         get() = _binding
             ?: error("Accessing binding outside lifecycle: $className")
 
