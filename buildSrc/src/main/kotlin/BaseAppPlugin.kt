@@ -19,6 +19,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
  */
 private inline val Project.libraryExtension get() = extensions.getByType<LibraryExtension>()
 private inline val Project.appExtension get() = extensions.getByType<AppExtension>()
+private inline val Project.javaPluginExtension get() = extensions.getByType<JavaPluginExtension>()
 
 open class BaseAppExtension {
     var viewBinding: Boolean = false
@@ -32,7 +33,7 @@ class BaseAppPlugin : Plugin<Project> {
             plugins.all {
                 when (this) {
                     is JavaPlugin, is JavaLibraryPlugin -> {
-                        project.extensions.getByType<JavaPluginExtension>().run {
+                        javaPluginExtension.run {
                             targetCompatibility = VERSION_1_8
                             sourceCompatibility = VERSION_1_8
                         }

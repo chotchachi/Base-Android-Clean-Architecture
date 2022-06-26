@@ -50,7 +50,7 @@ object Versions {
 
     const val multidex = "2.0.1"
     const val ktLint = "0.45.1"
-    const val koin = "3.1.6"
+    const val koin = "3.2.0"
     const val retrofit = "2.9.0"
     const val leakCanaryAndroid = "2.8.1"
     const val timber = "4.7.1"
@@ -59,4 +59,6 @@ object Versions {
     const val okhttp3 = "4.9.0"
     const val loggingInterceptor = "4.9.3"
     const val kotlinxSerializationConverter = "0.8.0"
+    const val flowExt = "0.3.0"
+    const val lottie = "5.0.3"
 }

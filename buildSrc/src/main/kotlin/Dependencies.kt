@@ -4,7 +4,9 @@
 object Dependencies {
     object module {
         const val baseUI = ":baseUI"
-        const val domain  = ":domain"
+        const val core = ":core"
+        const val utils = ":utils"
+        const val domain = ":domain"
         const val data = ":data"
     }
 
@@ -14,7 +16,8 @@ object Dependencies {
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlin.coroutines}"
         const val coroutinesCore =
             "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlin.coroutines}"
-        const val serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlin.serializationJson}"
+        const val serializationJson =
+            "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlin.serializationJson}"
     }
 
     object androidX {
@@ -26,7 +29,8 @@ object Dependencies {
         const val annotation = "androidx.annotation:annotation:${Versions.androidX.annotations}"
         const val v4 = "androidx.legacy:legacy-support-v4:${Versions.androidX.v4}"
         const val work = "androidx.work:work-runtime-ktx:${Versions.androidX.work}"
-        const val datastore = "androidx.datastore:datastore-preferences:${Versions.androidX.datastore}"
+        const val datastore =
+            "androidx.datastore:datastore-preferences:${Versions.androidX.datastore}"
 
         object view {
             const val material =
@@ -73,8 +77,10 @@ object Dependencies {
         const val billing = "com.android.billingclient:billing-ktx:${Versions.google.billing}"
         const val playCore = "com.google.android.play:core:${Versions.google.playCore}"
         const val playCoreKtx = "com.google.android.play:core-ktx:${Versions.google.playCoreKtx}"
-        const val playServicesAds = "com.google.android.gms:play-services-ads:${Versions.google.playServicesAds}"
-        const val playServicesAdsIdentifier = "com.google.android.gms:play-services-ads-identifier:${Versions.google.playServicesAdsIdentifier}"
+        const val playServicesAds =
+            "com.google.android.gms:play-services-ads:${Versions.google.playServicesAds}"
+        const val playServicesAdsIdentifier =
+            "com.google.android.gms:play-services-ads-identifier:${Versions.google.playServicesAdsIdentifier}"
     }
 
     object koin {
@@ -97,11 +103,15 @@ object Dependencies {
     const val multidex = "androidx.multidex:multidex:${Versions.multidex}"
     const val desugarJdk = "com.android.tools:desugar_jdk_libs:${Versions.desugarJdk}"
     const val okhttp3 = "com.squareup.okhttp3:okhttp:${Versions.okhttp3}"
-    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
+    const val loggingInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
     const val javaxApi = "javax.activation:javax.activation-api:1.2.0"
     const val viewBinding = "com.github.kirich1409:viewbindingpropertydelegate:1.4.7"
     const val leakCanaryAndroid =
         "com.squareup.leakcanary:leakcanary-android:${Versions.leakCanaryAndroid}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
-    const val kotlinxSerializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.kotlinxSerializationConverter}"
+    const val kotlinxSerializationConverter =
+        "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.kotlinxSerializationConverter}"
+    const val flowExt = "io.github.hoc081098:FlowExt-jvm:${Versions.flowExt}"
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 }
