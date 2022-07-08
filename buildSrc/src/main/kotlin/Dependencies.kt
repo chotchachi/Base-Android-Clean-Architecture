@@ -31,6 +31,7 @@ object Dependencies {
         const val work = "androidx.work:work-runtime-ktx:${Versions.androidX.work}"
         const val datastore =
             "androidx.datastore:datastore-preferences:${Versions.androidX.datastore}"
+        const val collection = "androidx.collection:collection-ktx:${Versions.androidX.collection}"
 
         object view {
             const val material =
