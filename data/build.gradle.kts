@@ -9,12 +9,16 @@ baseApp {
 }
 
 dependencies {
+    implementation(project(Dependencies.module.core))
     implementation(project(Dependencies.module.domain))
+    implementation(project(Dependencies.module.utils))
 
     implementation(Dependencies.kotlin.stdlib)
     implementation(Dependencies.kotlin.coroutinesCore)
     implementation(Dependencies.kotlin.coroutinesAndroid)
     implementation(Dependencies.kotlin.serializationJson)
+
+    implementation(Dependencies.koin.core)
 
     implementation(Dependencies.retrofit.retrofit)
 
@@ -24,4 +28,6 @@ dependencies {
 
     implementation(Dependencies.androidX.datastore)
 
+    implementation(Dependencies.loggingInterceptor)
+    implementation(Dependencies.kotlinxSerializationConverter)
 }
