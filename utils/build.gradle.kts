@@ -29,4 +29,5 @@ dependencies {
     kapt(Dependencies.androidX.lifecycle.compiler)
 
     implementation(Dependencies.timber)
+    implementation(Dependencies.okhttp3)
 }
