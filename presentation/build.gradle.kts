@@ -70,20 +70,9 @@ dependencies {
     implementation(Dependencies.koin.core)
     implementation(Dependencies.koin.android)
 
-//    implementation(Dependencies.androidX.room.runtime)
-//    kapt(Dependencies.androidX.room.compiler)
-//    implementation(Dependencies.androidX.room.ktx)
+    implementation(Dependencies.glide.glide)
+    kapt(Dependencies.glide.compiler)
+    implementation(Dependencies.glide.integration) { exclude(group = "glide-parent") }
 
-//    implementation(Dependencies.retrofit.retrofit)
-
-//    implementation(Dependencies.glide.glide)
-//    kapt(Dependencies.glide.compiler)
-//    implementation(Dependencies.glide.integration) { exclude(group = "glide-parent") }
-
-//    implementation(Dependencies.multidex)
-//    implementation(Dependencies.okhttp3)
-//    implementation(Dependencies.loggingInterceptor)
-//    implementation(Dependencies.javaxApi)
-//    implementation(Dependencies.timber)
-//    implementation(Dependencies.kotlinxSerializationConverter)
+    implementation(Dependencies.timber)
 }
