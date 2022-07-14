@@ -34,6 +34,13 @@ dependencies {
     implementation(project(Dependencies.module.utils))
     implementation(project(Dependencies.module.domain))
     implementation(project(Dependencies.module.data))
+    implementation("com.google.android.material:material:1.5.0-alpha04")
+    implementation("androidx.appcompat:appcompat:1.4.2")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
 
     coreLibraryDesugaring(Dependencies.desugarJdk)
 
@@ -86,4 +93,16 @@ dependencies {
 //    implementation(Dependencies.javaxApi)
 //    implementation(Dependencies.timber)
 //    implementation(Dependencies.kotlinxSerializationConverter)
+}
+android {
+    buildFeatures {
+        viewBinding = true
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
