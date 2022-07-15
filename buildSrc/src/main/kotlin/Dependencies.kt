@@ -32,6 +32,7 @@ object Dependencies {
         const val datastore =
             "androidx.datastore:datastore-preferences:${Versions.androidX.datastore}"
         const val collection = "androidx.collection:collection-ktx:${Versions.androidX.collection}"
+        const val paging = "androidx.paging:paging-runtime:${Versions.androidX.paging}"
 
         object view {
             const val material =

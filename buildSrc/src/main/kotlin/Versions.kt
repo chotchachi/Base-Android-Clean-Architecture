@@ -30,6 +30,7 @@ object Versions {
         const val work = "2.7.1"
         const val datastore = "1.0.0"
         const val collection = "1.2.0"
+        const val paging = "3.1.1"
 
         object view {
             const val material = "1.6.0"

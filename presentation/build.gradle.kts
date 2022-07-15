@@ -50,6 +50,8 @@ dependencies {
     implementation(Dependencies.androidX.fragment)
     implementation(Dependencies.androidX.startUp)
     implementation(Dependencies.androidX.work)
+    implementation(Dependencies.androidX.collection)
+    implementation(Dependencies.androidX.paging)
 
     implementation(Dependencies.androidX.view.material)
     implementation(Dependencies.androidX.view.constraintLayout)

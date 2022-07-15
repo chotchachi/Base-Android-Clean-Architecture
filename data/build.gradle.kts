@@ -27,6 +27,7 @@ dependencies {
     implementation(Dependencies.androidX.room.ktx)
 
     implementation(Dependencies.androidX.datastore)
+    implementation(Dependencies.androidX.paging)
 
     implementation(Dependencies.loggingInterceptor)
     implementation(Dependencies.kotlinxSerializationConverter)

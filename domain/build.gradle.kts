@@ -15,4 +15,5 @@ dependencies {
     implementation(Dependencies.kotlin.serializationJson)
 
     implementation(Dependencies.androidX.annotation)
+    implementation(Dependencies.androidX.paging)
 }
