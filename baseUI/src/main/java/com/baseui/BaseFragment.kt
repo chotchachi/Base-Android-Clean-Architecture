@@ -52,6 +52,7 @@ abstract class BaseFragment<ViewBindingType : ViewBinding> :
         super.onViewCreated(view, savedInstanceState)
         Timber.d("$this::onViewCreated")
         setupView(view, savedInstanceState)
+        bindViewModel()
     }
 
     @CallSuper
@@ -74,4 +75,5 @@ abstract class BaseFragment<ViewBindingType : ViewBinding> :
     }
 
     protected abstract fun setupView(view: View, savedInstanceState: Bundle?)
+    protected abstract fun bindViewModel()
 }
