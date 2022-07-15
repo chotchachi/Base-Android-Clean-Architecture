@@ -9,5 +9,6 @@ import com.data.module.repositoryModule
 val appModules = listOf(
     coreModule,
     networkModule,
-    repositoryModule
+    repositoryModule,
+    viewModelModule
 )
