@@ -30,4 +30,6 @@ dependencies {
 
     implementation(Dependencies.loggingInterceptor)
     implementation(Dependencies.kotlinxSerializationConverter)
+
+    implementation(Dependencies.timber)
 }
