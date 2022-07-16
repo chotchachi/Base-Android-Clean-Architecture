@@ -25,7 +25,6 @@ object Versions {
         const val lifecycle = "2.5.0"
         const val lifecycleExtensions = "2.2.0"
         const val room = "2.4.2"
-        const val roomPaging = "2.5.0-alpha02"
         const val annotations = "1.1.0"
         const val v4 = "1.0.0"
         const val work = "2.7.1"
