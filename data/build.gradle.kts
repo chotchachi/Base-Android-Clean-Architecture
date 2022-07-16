@@ -25,6 +25,7 @@ dependencies {
     implementation(Dependencies.androidX.room.runtime)
     kapt(Dependencies.androidX.room.compiler)
     implementation(Dependencies.androidX.room.ktx)
+    implementation(Dependencies.androidX.room.paging)
 
     implementation(Dependencies.androidX.datastore)
     implementation(Dependencies.androidX.paging)
