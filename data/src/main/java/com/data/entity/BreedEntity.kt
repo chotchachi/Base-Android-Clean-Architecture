@@ -1,14 +1,19 @@
 package com.data.entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
  * Created by Thanh Quang on 14/07/2022.
  */
+@Entity(tableName = "breed")
 @Serializable
 data class BreedEntity(
     val weight: Weight,
+
+    @PrimaryKey
     val id: String,
     val name: String,
 
