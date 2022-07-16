@@ -7,7 +7,7 @@ import com.core.dispatchers.CoroutineDispatchers
 import com.data.entity.mapper.BreedEntityMapper
 import com.data.paging.BreedPagingSource
 import com.data.paging.BreedPagingSource.Companion.NETWORK_PAGE_SIZE
-import com.data.remote.CatApi
+import com.data.remote.TheCatApi
 import com.domain.model.Breed
 import com.domain.repository.BreedRepository
 import kotlinx.coroutines.flow.*
@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.*
  * Created by Thanh Quang on 14/07/2022.
  */
 class BreedRepositoryImpl(
-    private val catApi: CatApi,
+    private val theCatApi: TheCatApi,
     private val breedEntityMapper: BreedEntityMapper,
     private val dispatchers: CoroutineDispatchers
 ) : BreedRepository {
@@ -25,13 +25,13 @@ class BreedRepositoryImpl(
         return Pager(
             config = PagingConfig(pageSize = NETWORK_PAGE_SIZE),
             pagingSourceFactory = {
-                BreedPagingSource(catApi, breedEntityMapper)
+                BreedPagingSource(theCatApi, breedEntityMapper)
             }
         ).flow.flowOn(dispatchers.io)
     }
 
     override fun searchBreed(query: String) = flow {
-        emit(catApi.searchBreeds(query))
+        emit(theCatApi.searchBreeds(query))
     }
         .catch { emit(emptyList()) }
         .map { it.map(breedEntityMapper::mapFromEntity) }

@@ -4,7 +4,7 @@ package com.data.module
 
 import android.content.Context
 import com.data.BuildConfig
-import com.data.remote.CatApi
+import com.data.remote.TheCatApi
 import com.data.remote.NetworkConstant.CACHE_SIZE
 import com.data.remote.NetworkConstant.CAT_API_SERVER
 import com.data.remote.NetworkConstant.TIME_OUT
@@ -34,7 +34,7 @@ val networkModule = module {
     singleOf(::createOkHttpClient)
     singleOf(::createConverterFactory)
     factory(BASE_APP_API_URL_QUALIFIER) { CAT_API_SERVER }
-    single { createService<CatApi>(get(BASE_APP_API_URL_QUALIFIER), get(), get()) }
+    single { createService<TheCatApi>(get(BASE_APP_API_URL_QUALIFIER), get(), get()) }
 }
 
 private fun provideNetworkInterceptor(): NetworkInterceptor {

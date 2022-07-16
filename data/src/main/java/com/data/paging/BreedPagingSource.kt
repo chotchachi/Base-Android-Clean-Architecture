@@ -3,14 +3,14 @@ package com.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.data.entity.mapper.BreedEntityMapper
-import com.data.remote.CatApi
+import com.data.remote.TheCatApi
 import com.domain.model.Breed
 
 /**
  * Created by Thanh Quang on 15/07/2022.
  */
 class BreedPagingSource(
-    private val catApi: CatApi,
+    private val theCatApi: TheCatApi,
     private val breedEntityMapper: BreedEntityMapper
 ) :
     PagingSource<Int, Breed>() {
@@ -18,7 +18,7 @@ class BreedPagingSource(
         val currentPage = params.key ?: INITIAL_LOAD_PAGE
 
         return try {
-            val response = catApi.getBreeds(
+            val response = theCatApi.getBreeds(
                 attachBreed = 0,
                 page = currentPage,
                 limit = params.loadSize

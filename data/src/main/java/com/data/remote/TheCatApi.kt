@@ -7,7 +7,7 @@ import retrofit2.http.Query
 /**
  * Created by Thanh Quang on 14/07/2022.
  */
-interface CatApi {
+interface TheCatApi {
     @GET("breeds")
     suspend fun getBreeds(
         @Query("attach_breed") attachBreed: Int,
