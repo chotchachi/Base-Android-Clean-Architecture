@@ -115,6 +115,7 @@ object Dependencies {
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     const val kotlinxSerializationConverter =
         "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.kotlinxSerializationConverter}"
+    const val coroutineCallAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.coroutineCallAdapter}"
     const val flowExt = "io.github.hoc081098:FlowExt-jvm:${Versions.flowExt}"
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 }

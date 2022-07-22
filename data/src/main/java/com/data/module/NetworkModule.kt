@@ -11,6 +11,7 @@ import com.data.remote.NetworkConstant.TIME_OUT
 import com.data.remote.headerProvider.AuthHeaderProvider
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.data.remote.interceptor.NetworkInterceptor
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.Cache
@@ -78,6 +79,7 @@ private inline fun <reified T> createService(
         .baseUrl(baseUrl)
         .client(okHttpClient)
         .addConverterFactory(converterFactory)
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
         .create(T::class.java)
 }

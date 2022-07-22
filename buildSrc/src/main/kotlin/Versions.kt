@@ -61,6 +61,7 @@ object Versions {
     const val okhttp3 = "4.9.0"
     const val loggingInterceptor = "4.9.3"
     const val kotlinxSerializationConverter = "0.8.0"
+    const val coroutineCallAdapter = "0.9.2"
     const val flowExt = "0.3.0"
     const val lottie = "5.0.3"
 }

@@ -32,6 +32,7 @@ dependencies {
 
     implementation(Dependencies.loggingInterceptor)
     implementation(Dependencies.kotlinxSerializationConverter)
+    implementation(Dependencies.coroutineCallAdapter)
 
     implementation(Dependencies.timber)
 }
