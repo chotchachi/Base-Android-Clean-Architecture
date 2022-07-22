@@ -1,5 +1,6 @@
 package com.chotchachi.baseandroidcleanarchitecture.di
 
+import com.data.module.dataStoreModule
 import com.data.module.networkModule
 import com.data.module.repositoryModule
 import com.data.module.roomModule
@@ -11,6 +12,7 @@ val appModules = listOf(
     coreModule,
     networkModule,
     roomModule,
+    dataStoreModule,
     repositoryModule,
     viewModelModule
 )
