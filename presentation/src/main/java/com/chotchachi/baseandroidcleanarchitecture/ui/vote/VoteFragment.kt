@@ -18,7 +18,7 @@ import timber.log.Timber
 class VoteFragment : BaseFragment<FragmentVoteBinding>(), CardStackListener {
     override val viewModel by viewModel<VoteViewModel>()
 
-    private val cardStackLayoutManager by lazy { CardStackLayoutManager(mContext, this) }
+    private lateinit var cardStackLayoutManager: CardStackLayoutManager
     private val cardStackAdapter by lazy {
         CardStackAdapter(
             mContext,
@@ -28,6 +28,10 @@ class VoteFragment : BaseFragment<FragmentVoteBinding>(), CardStackListener {
     }
 
     override fun setupView(view: View, savedInstanceState: Bundle?) {
+        cardStackLayoutManager = CardStackLayoutManager(
+            mContext,
+            this
+        )
         cardStackLayoutManager.setStackFrom(StackFrom.None)
         cardStackLayoutManager.setVisibleCount(3)
         cardStackLayoutManager.setTranslationInterval(8.0f)
@@ -82,7 +86,6 @@ class VoteFragment : BaseFragment<FragmentVoteBinding>(), CardStackListener {
 
     override fun bindViewModel() {
         viewModel.catImageData.collectInViewLifecycle(this, action = ::handleCatImageData)
-        viewModel.loadCatImages()
     }
 
     private fun handleCatImageData(items: List<CatImage>) {

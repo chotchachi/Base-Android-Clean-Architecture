@@ -18,7 +18,7 @@ class CatImageRepositoryImpl(
     private val dispatchers: CoroutineDispatchers
 ) : CatImageRepository {
     override fun getCatImagesVoting() = flow {
-        emit(theCatApi.searchCatImagesAsync(order = "RANDOM", limit = 3).await())
+        emit(theCatApi.searchCatImagesAsync(order = "RANDOM", limit = 10).await())
     }
         .catch { emit(emptyList()) }
         .map { it.map(catImageEntityMapper::mapFromEntity) }

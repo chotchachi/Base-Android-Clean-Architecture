@@ -27,5 +27,7 @@ class VoteViewModel(
                 SharingStarted.Eagerly,
                 emptyList()
             )
+
+        loadCatImages()
     }
 }
