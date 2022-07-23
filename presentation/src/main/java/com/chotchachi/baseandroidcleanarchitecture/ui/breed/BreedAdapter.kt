@@ -1,4 +1,4 @@
-package com.chotchachi.baseandroidcleanarchitecture.ui.home
+package com.chotchachi.baseandroidcleanarchitecture.ui.breed
 
 import android.content.Context
 import android.view.LayoutInflater

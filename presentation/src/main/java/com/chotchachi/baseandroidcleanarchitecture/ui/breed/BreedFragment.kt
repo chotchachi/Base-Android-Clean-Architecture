@@ -1,4 +1,4 @@
-package com.chotchachi.baseandroidcleanarchitecture.ui.home
+package com.chotchachi.baseandroidcleanarchitecture.ui.breed
 
 import android.os.Bundle
 import android.view.View
@@ -6,14 +6,15 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import com.baseui.BaseFragment
 import com.bumptech.glide.Glide
-import com.chotchachi.baseandroidcleanarchitecture.databinding.FragmentHomeBinding
+import com.chotchachi.baseandroidcleanarchitecture.databinding.FragmentBreedBinding
 import com.domain.model.Breed
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
-    override val viewModel by viewModel<HomeViewModel>()
+class BreedFragment : BaseFragment<FragmentBreedBinding>() {
+    override val viewModel by viewModel<BreedViewModel>()
 
     private val breedAdapter by lazy {
         BreedAdapter(mContext, Glide.with(this), ::handleBreedItemClick)
@@ -38,6 +39,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         viewModel.catBreedData
             .onEach { breedAdapter.submitData(it) }
             .launchIn(lifecycleScope)
+
+        lifecycleScope.launchWhenCreated {
+            breedAdapter.loadStateFlow.collectLatest {
+
+            }
+        }
     }
 
     private fun handleBreedItemClick(breed: Breed) {

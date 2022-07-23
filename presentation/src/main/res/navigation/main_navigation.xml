@@ -3,23 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_vote">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.chotchachi.baseandroidcleanarchitecture.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_vote"
+        android:name="com.chotchachi.baseandroidcleanarchitecture.ui.vote.VoteFragment"
+        android:label="@string/title_vote"
+        tools:layout="@layout/fragment_vote" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.chotchachi.baseandroidcleanarchitecture.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_breed"
+        android:name="com.chotchachi.baseandroidcleanarchitecture.ui.breed.BreedFragment"
+        android:label="@string/title_breed"
+        tools:layout="@layout/fragment_breed" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.chotchachi.baseandroidcleanarchitecture.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>

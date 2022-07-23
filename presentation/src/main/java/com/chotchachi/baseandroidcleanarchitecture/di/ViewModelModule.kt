@@ -1,7 +1,8 @@
 package com.chotchachi.baseandroidcleanarchitecture.di
 
-import com.chotchachi.baseandroidcleanarchitecture.ui.home.HomeViewModel
+import com.chotchachi.baseandroidcleanarchitecture.ui.breed.BreedViewModel
 import com.chotchachi.baseandroidcleanarchitecture.ui.main.MainViewModel
+import com.chotchachi.baseandroidcleanarchitecture.ui.vote.VoteViewModel
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 
@@ -10,5 +11,6 @@ import org.koin.dsl.module
  */
 val viewModelModule = module {
     viewModelOf(::MainViewModel)
-    viewModelOf(::HomeViewModel)
+    viewModelOf(::BreedViewModel)
+    viewModelOf(::VoteViewModel)
 }

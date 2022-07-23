@@ -17,13 +17,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    private val mainDestinationIds = setOf(
+        R.id.navigation_vote,
+        R.id.navigation_breed
+    )
+
     override fun setupView(savedInstanceState: Bundle?) {
         setSupportActionBar(binding.toolbar)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_container) as NavHostFragment
         navController = navHostFragment.navController
 
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        appBarConfiguration = AppBarConfiguration(mainDestinationIds)
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomNavView.setupWithNavController(navController)
