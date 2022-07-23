@@ -31,7 +31,7 @@ class BreedRepositoryImpl(
     }
 
     override fun searchBreed(query: String) = flow {
-        emit(theCatApi.searchBreeds(query))
+        emit(theCatApi.searchBreedsAsync(query).await())
     }
         .catch { emit(emptyList()) }
         .map { it.map(breedEntityMapper::mapFromEntity) }

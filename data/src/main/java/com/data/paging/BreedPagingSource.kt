@@ -18,11 +18,11 @@ class BreedPagingSource(
         val currentPage = params.key ?: INITIAL_LOAD_PAGE
 
         return try {
-            val response = theCatApi.getBreeds(
+            val response = theCatApi.getBreedsAsync(
                 attachBreed = 0,
                 page = currentPage,
                 limit = params.loadSize
-            ).map(breedEntityMapper::mapFromEntity)
+            ).await().map(breedEntityMapper::mapFromEntity)
 
             val nextKey = if (response.isEmpty()) {
                 null

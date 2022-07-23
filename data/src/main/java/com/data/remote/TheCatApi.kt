@@ -1,6 +1,7 @@
 package com.data.remote
 
 import com.data.entity.BreedEntity
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -9,11 +10,11 @@ import retrofit2.http.Query
  */
 interface TheCatApi {
     @GET("breeds")
-    suspend fun getBreeds(
+    fun getBreedsAsync(
         @Query("attach_breed") attachBreed: Int,
         @Query("page") page: Int,
         @Query("limit") limit: Int
-    ): List<BreedEntity>
+    ): Deferred<List<BreedEntity>>
 
     @GET("breeds/search")
     suspend fun searchBreeds(
