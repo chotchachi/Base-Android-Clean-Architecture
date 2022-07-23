@@ -2,4 +2,7 @@
     <string name="app_name">Base Android Clean Architecture</string>
     <string name="title_breed">Breed</string>
     <string name="title_vote">Vote</string>
+    <string name="vote">Vote</string>
+    <string name="refresh">Refresh</string>
+    <string name="un_vote">Un Vote</string>
 </resources>
