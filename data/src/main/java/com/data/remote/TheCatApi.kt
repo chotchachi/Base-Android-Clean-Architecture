@@ -1,6 +1,7 @@
 package com.data.remote
 
 import com.data.entity.BreedEntity
+import com.data.entity.CatImageEntity
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,7 +18,18 @@ interface TheCatApi {
     ): Deferred<List<BreedEntity>>
 
     @GET("breeds/search")
-    suspend fun searchBreeds(
+    fun searchBreedsAsync(
         @Query("q") query: String
-    ): List<BreedEntity>
+    ): Deferred<List<BreedEntity>>
+
+    @GET("images/search")
+    fun searchCatImagesAsync(
+        @Query("size") size: String? = null,
+        @Query("mime_types") mimeTypes: List<String>? = null,
+        @Query("order") order: String? = null,
+        @Query("limit") limit: Int? = null,
+        @Query("page") page: Int? = null,
+        @Query("category_ids") categoryIds: List<Int>? = null,
+        @Query("breed_id") breedId: String? = null
+    ): Deferred<List<CatImageEntity>>
 }

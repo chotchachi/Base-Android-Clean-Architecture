@@ -1,6 +1,7 @@
 package com.data.module
 
 import com.data.entity.mapper.BreedEntityMapper
+import com.data.entity.mapper.CatImageEntityMapper
 import com.data.repository.*
 import com.domain.repository.*
 import org.koin.core.module.dsl.bind
@@ -12,6 +13,8 @@ import org.koin.dsl.module
  */
 val repositoryModule = module {
     singleOf(::BreedEntityMapper)
+    singleOf(::CatImageEntityMapper)
 
     singleOf(::BreedRepositoryImpl) { bind<BreedRepository>() }
+    singleOf(::CatImageRepositoryImpl) { bind<CatImageRepository>() }
 }
