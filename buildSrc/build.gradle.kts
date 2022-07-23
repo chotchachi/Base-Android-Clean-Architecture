@@ -23,7 +23,7 @@ gradlePlugin {
 internal object PluginVersions {
     const val kotlin = "1.6.21"
     const val androidGradle = "7.0.3"
-    const val navigationSafeArgs = "2.4.2"
+    const val navigationSafeArgs = "2.5.0"
     const val googleServices = "4.3.10"
     const val crashlytics = "2.7.1"
     const val spotless = "5.17.0"
