@@ -2,7 +2,7 @@ package com.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.data.entity.mapper.BreedEntityMapper
+import com.data.entity.mapper.BreedMapper
 import com.data.remote.TheCatApi
 import com.domain.model.Breed
 
@@ -11,7 +11,7 @@ import com.domain.model.Breed
  */
 class BreedPagingSource(
     private val theCatApi: TheCatApi,
-    private val breedEntityMapper: BreedEntityMapper
+    private val breedMapper: BreedMapper
 ) :
     PagingSource<Int, Breed>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Breed> {
@@ -22,7 +22,7 @@ class BreedPagingSource(
                 attachBreed = 0,
                 page = currentPage,
                 limit = params.loadSize
-            ).await().map(breedEntityMapper::mapFromEntity)
+            ).await().map(breedMapper::mapFromEntity)
 
             val nextKey = if (response.isEmpty()) {
                 null

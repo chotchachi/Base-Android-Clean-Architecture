@@ -4,7 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.core.dispatchers.CoroutineDispatchers
-import com.data.entity.mapper.BreedEntityMapper
+import com.data.entity.mapper.BreedMapper
 import com.data.paging.BreedPagingSource
 import com.data.paging.BreedPagingSource.Companion.NETWORK_PAGE_SIZE
 import com.data.remote.TheCatApi
@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.*
  */
 class BreedRepositoryImpl(
     private val theCatApi: TheCatApi,
-    private val breedEntityMapper: BreedEntityMapper,
+    private val breedMapper: BreedMapper,
     private val dispatchers: CoroutineDispatchers
 ) : BreedRepository {
 
@@ -25,7 +25,7 @@ class BreedRepositoryImpl(
         return Pager(
             config = PagingConfig(pageSize = NETWORK_PAGE_SIZE),
             pagingSourceFactory = {
-                BreedPagingSource(theCatApi, breedEntityMapper)
+                BreedPagingSource(theCatApi, breedMapper)
             }
         ).flow.flowOn(dispatchers.io)
     }
@@ -34,6 +34,6 @@ class BreedRepositoryImpl(
         emit(theCatApi.searchBreedsAsync(query).await())
     }
         .catch { emit(emptyList()) }
-        .map { it.map(breedEntityMapper::mapFromEntity) }
+        .map { it.map(breedMapper::mapFromEntity) }
         .flowOn(dispatchers.io)
 }

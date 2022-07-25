@@ -7,7 +7,7 @@ import com.domain.model.Breed
 /**
  * Created by Thanh Quang on 14/07/2022.
  */
-class BreedEntityMapper : Mapper<BreedEntity, Breed> {
+class BreedMapper : Mapper<BreedEntity, Breed> {
     override fun mapFromEntity(item: BreedEntity) = Breed(
         Breed.Weight(item.weight.imperial, item.weight.metric),
         item.id,

@@ -1,10 +1,9 @@
 package com.data.repository
 
 import com.core.dispatchers.CoroutineDispatchers
-import com.data.entity.mapper.CatImageEntityMapper
+import com.data.entity.mapper.CatImageMapper
 import com.data.remote.TheCatApi
 import com.domain.repository.CatImageRepository
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -14,13 +13,12 @@ import kotlinx.coroutines.flow.map
  */
 class CatImageRepositoryImpl(
     private val theCatApi: TheCatApi,
-    private val catImageEntityMapper: CatImageEntityMapper,
+    private val catImageMapper: CatImageMapper,
     private val dispatchers: CoroutineDispatchers
 ) : CatImageRepository {
     override fun getCatImagesVoting() = flow {
         emit(theCatApi.searchCatImagesAsync(order = "RANDOM", limit = 10).await())
     }
-        .catch { emit(emptyList()) }
-        .map { it.map(catImageEntityMapper::mapFromEntity) }
+        .map { it.map(catImageMapper::mapFromEntity) }
         .flowOn(dispatchers.io)
 }
