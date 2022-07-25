@@ -114,6 +114,11 @@ class VoteFragment : BaseFragment<FragmentVoteBinding>(), CardStackListener {
             Timber.d("onCardSwiped: load more data")
             viewModel.loadCatImages()
         }
+        when (direction) {
+            Direction.Left -> viewModel.voteDown(cardStackLayoutManager.topPosition)
+            Direction.Right -> viewModel.voteUp(cardStackLayoutManager.topPosition)
+            else -> {}
+        }
     }
 
     override fun onCardRewound() {

@@ -13,7 +13,11 @@ import org.koin.dsl.module
 val repositoryModule = module {
     singleOf(::BreedMapper)
     singleOf(::CatImageMapper)
+    singleOf(::VoteResultMapper)
+    singleOf(::VoteRequestMapper)
+    singleOf(::VoteMapper)
 
     singleOf(::BreedRepositoryImpl) { bind<BreedRepository>() }
     singleOf(::CatImageRepositoryImpl) { bind<CatImageRepository>() }
+    singleOf(::VoteRepositoryImpl) { bind<VoteRepository>() }
 }

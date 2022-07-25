@@ -2,8 +2,13 @@ package com.data.remote
 
 import com.data.entity.BreedEntity
 import com.data.entity.CatImageEntity
+import com.data.entity.VoteEntity
+import com.data.entity.VoteResultEntity
+import com.data.entity.request.VoteRequestEntity
 import kotlinx.coroutines.Deferred
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 /**
@@ -32,4 +37,14 @@ interface TheCatApi {
         @Query("category_ids") categoryIds: List<Int>? = null,
         @Query("breed_id") breedId: String? = null
     ): Deferred<List<CatImageEntity>>
+
+    @POST("votes")
+    fun sendVoteAsync(
+        @Body voteRequest: VoteRequestEntity
+    ): Deferred<VoteResultEntity>
+
+    @GET("votes")
+    fun getVotesAsync(
+        @Query("sub_id") subId: String
+    ): Deferred<List<VoteEntity>>
 }
