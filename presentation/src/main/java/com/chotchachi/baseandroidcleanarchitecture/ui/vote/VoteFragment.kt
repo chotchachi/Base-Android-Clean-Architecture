@@ -26,6 +26,7 @@ class VoteFragment : BaseFragment<FragmentVoteBinding>(), CardStackListener {
             ::handleCardItemClick
         )
     }
+    private var currentCardPosition: Int? = null
 
     override fun setupView(view: View, savedInstanceState: Bundle?) {
         cardStackLayoutManager = CardStackLayoutManager(
@@ -90,6 +91,7 @@ class VoteFragment : BaseFragment<FragmentVoteBinding>(), CardStackListener {
 
     private fun handleCatImageData(items: List<CatImage>) {
         cardStackAdapter.submitList(items)
+        currentCardPosition?.let { binding.cardStackView.scrollToPosition(it) }
     }
 
     private fun handleCardItemClick(catImage: CatImage) {
@@ -106,6 +108,7 @@ class VoteFragment : BaseFragment<FragmentVoteBinding>(), CardStackListener {
 
     override fun onCardSwiped(direction: Direction?) {
         Timber.d("onCardSwiped: position = ${cardStackLayoutManager.topPosition}, direction = $direction")
+        currentCardPosition = cardStackLayoutManager.topPosition
         if (cardStackLayoutManager.topPosition == cardStackAdapter.itemCount - 5) {
             // Load more
             Timber.d("onCardSwiped: load more data")
