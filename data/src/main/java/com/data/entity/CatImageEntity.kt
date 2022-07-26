@@ -5,5 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CatImageEntity(
     val id: String,
-    val url: String
+    val url: String,
+    val width: Long?,
+    val height: Long?
 )

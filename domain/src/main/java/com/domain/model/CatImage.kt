@@ -9,5 +9,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CatImage(
     val id: String,
-    val url: String
+    val url: String,
+    val width: Long?,
+    val height: Long?
 ) : Parcelable
