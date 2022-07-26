@@ -72,9 +72,10 @@ dependencies {
     implementation(Dependencies.koin.core)
     implementation(Dependencies.koin.android)
 
-    implementation(Dependencies.glide.glide)
-    kapt(Dependencies.glide.compiler)
-    implementation(Dependencies.glide.integration) { exclude(group = "glide-parent") }
+    implementation(Dependencies.coil.bom)
+    implementation(Dependencies.coil.coil)
+    implementation(Dependencies.coil.gifSupport)
+    implementation(Dependencies.coil.svgSupport)
 
     implementation(Dependencies.timber)
 }

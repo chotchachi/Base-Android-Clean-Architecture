@@ -103,6 +103,14 @@ object Dependencies {
         const val integration = "com.github.bumptech.glide:okhttp3-integration:${Versions.glide}"
     }
 
+    object coil {
+        const val bom = "io.coil-kt:coil-bom:${Versions.coil}"
+        const val coil = "io.coil-kt:coil"
+        const val coilBase = "io.coil-kt:coil-base"
+        const val gifSupport = "io.coil-kt:coil-gif"
+        const val svgSupport = "io.coil-kt:coil-svg"
+    }
+
     const val multidex = "androidx.multidex:multidex:${Versions.multidex}"
     const val desugarJdk = "com.android.tools:desugar_jdk_libs:${Versions.desugarJdk}"
     const val okhttp3 = "com.squareup.okhttp3:okhttp:${Versions.okhttp3}"

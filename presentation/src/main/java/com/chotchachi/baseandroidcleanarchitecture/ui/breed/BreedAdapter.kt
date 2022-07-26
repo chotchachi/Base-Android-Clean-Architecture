@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.RequestManager
+import coil.load
 import com.chotchachi.baseandroidcleanarchitecture.databinding.ItemCatBreedBinding
 import com.domain.model.Breed
 
@@ -15,7 +15,6 @@ import com.domain.model.Breed
  */
 class BreedAdapter(
     context: Context,
-    private val glide: RequestManager,
     private val itemClick: (Breed) -> Unit
 ) : PagingDataAdapter<Breed, BreedAdapter.BreedVH>(DataDifferentiator) {
     private val inflater = LayoutInflater.from(context)
@@ -25,12 +24,9 @@ class BreedAdapter(
 
         fun bind(item: Breed) {
             itemBinding.root.setOnClickListener { itemClick(item) }
-
             itemBinding.tvBreedName.text = item.name
             itemBinding.tvBreedDescription.text = item.description
-
-            glide.load(item.image?.url)
-                .into(itemBinding.ivBreedThumb)
+            itemBinding.ivBreedThumb.load(item.image?.url)
         }
     }
 

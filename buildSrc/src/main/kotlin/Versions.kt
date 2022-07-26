@@ -64,4 +64,5 @@ object Versions {
     const val coroutineCallAdapter = "0.9.2"
     const val flowExt = "0.3.0"
     const val lottie = "5.0.3"
+    const val coil = "2.1.0"
 }

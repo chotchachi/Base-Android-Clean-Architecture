@@ -7,7 +7,6 @@ import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.baseui.BaseFragment
-import com.bumptech.glide.Glide
 import com.chotchachi.baseandroidcleanarchitecture.databinding.FragmentVoteBinding
 import com.chotchachi.baseandroidcleanarchitecture.view.cardstackview.*
 import com.domain.model.CatImage
@@ -22,7 +21,6 @@ class VoteFragment : BaseFragment<FragmentVoteBinding>(), CardStackListener {
     private val cardStackAdapter by lazy {
         CardStackAdapter(
             mContext,
-            Glide.with(this),
             ::handleCardItemClick
         )
     }

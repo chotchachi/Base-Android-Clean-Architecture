@@ -5,7 +5,6 @@ import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import com.baseui.BaseFragment
-import com.bumptech.glide.Glide
 import com.chotchachi.baseandroidcleanarchitecture.databinding.FragmentBreedBinding
 import com.domain.model.Breed
 import kotlinx.coroutines.flow.collectLatest
@@ -17,7 +16,7 @@ class BreedFragment : BaseFragment<FragmentBreedBinding>() {
     override val viewModel by viewModel<BreedViewModel>()
 
     private val breedAdapter by lazy {
-        BreedAdapter(mContext, Glide.with(this), ::handleBreedItemClick)
+        BreedAdapter(mContext, ::handleBreedItemClick)
     }
 
     override fun setupView(view: View, savedInstanceState: Bundle?) {
