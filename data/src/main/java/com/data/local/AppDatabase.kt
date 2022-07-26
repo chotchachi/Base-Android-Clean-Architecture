@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.data.entity.BreedEntity
+import com.data.entity.CatImageEntity
 import com.data.local.dao.BreedItemDao
 
 /**
@@ -11,6 +12,7 @@ import com.data.local.dao.BreedItemDao
  */
 @Database(
     entities = [
+        CatImageEntity::class,
         BreedEntity::class
     ],
     version = 1,

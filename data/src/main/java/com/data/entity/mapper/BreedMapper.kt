@@ -7,7 +7,9 @@ import com.domain.model.Breed
 /**
  * Created by Thanh Quang on 14/07/2022.
  */
-class BreedMapper : Mapper<BreedEntity, Breed> {
+class BreedMapper(
+    private val catImageMapper: CatImageMapper
+) : Mapper<BreedEntity, Breed> {
     override fun mapFromEntity(item: BreedEntity) = Breed(
         Breed.Weight(item.weight.imperial, item.weight.metric),
         item.id,
@@ -46,7 +48,7 @@ class BreedMapper : Mapper<BreedEntity, Breed> {
         item.wikipediaURL,
         item.hypoallergenic,
         item.referenceImageID,
-        item.image?.let { Breed.Image(it.id, it.width, it.height, it.url) },
+        item.image?.let(catImageMapper::mapFromEntity),
         item.catFriendly,
         item.bidability
     )
@@ -89,7 +91,7 @@ class BreedMapper : Mapper<BreedEntity, Breed> {
         item.wikipediaURL,
         item.hypoallergenic,
         item.referenceImageID,
-        item.image?.let { BreedEntity.Image(it.id, it.width, it.height, it.url) },
+        item.image?.let(catImageMapper::mapToEntity),
         item.catFriendly,
         item.bidability
     )

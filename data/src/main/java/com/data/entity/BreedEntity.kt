@@ -120,7 +120,7 @@ data class BreedEntity(
     val referenceImageID: String? = null,
 
     @Embedded
-    val image: Image? = null,
+    val image: CatImageEntity? = null,
 
     @SerialName("cat_friendly")
     @ColumnInfo(name = "cat_friendly")
@@ -135,17 +135,5 @@ data class BreedEntity(
         val imperial: String,
         @ColumnInfo(name = "weight_metric")
         val metric: String
-    )
-
-    @Serializable
-    data class Image(
-        @ColumnInfo(name = "image_id")
-        val id: String,
-        @ColumnInfo(name = "image_width")
-        val width: Long,
-        @ColumnInfo(name = "image_height")
-        val height: Long,
-        @ColumnInfo(name = "image_url")
-        val url: String
     )
 }

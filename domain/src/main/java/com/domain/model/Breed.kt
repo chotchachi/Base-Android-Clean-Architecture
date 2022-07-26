@@ -45,7 +45,7 @@ data class Breed(
     val wikipediaURL: String? = null,
     val hypoallergenic: Long,
     val referenceImageID: String? = null,
-    val image: Image? = null,
+    val image: CatImage? = null,
     val catFriendly: Long? = null,
     val bidability: Long? = null
 ) : Parcelable {
@@ -54,13 +54,5 @@ data class Breed(
     data class Weight(
         val imperial: String,
         val metric: String
-    ) : Parcelable
-
-    @Parcelize
-    data class Image(
-        val id: String,
-        val width: Long,
-        val height: Long,
-        val url: String
     ) : Parcelable
 }
