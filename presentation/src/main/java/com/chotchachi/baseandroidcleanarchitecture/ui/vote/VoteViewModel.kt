@@ -45,14 +45,16 @@ class VoteViewModel(
 
         val voteUpTrigger = _voteUpTrigger
             .withLatestFrom(catImageData) { position, data ->
-                data[position]
+                data.getOrNull(position)
             }
+            .filterNotNull()
             .map { VoteRequest(it.id, "ttquang", VoteRequest.VoteValue.UP) }
 
         val voteDownTrigger = _voteDownTrigger
             .withLatestFrom(catImageData) { position, data ->
-                data[position]
+                data.getOrNull(position)
             }
+            .filterNotNull()
             .map { VoteRequest(it.id, "ttquang", VoteRequest.VoteValue.DOWN) }
 
         merge(voteUpTrigger, voteDownTrigger)
