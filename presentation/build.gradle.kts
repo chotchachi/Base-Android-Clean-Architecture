@@ -29,6 +29,12 @@ appVersioning {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
+    implementation("androidx.test:monitor:1.6.1")
+    implementation("androidx.test.ext:junit-ktx:1.1.5")
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("androidx.test:core-ktx:1.5.0")
+    androidTestImplementation("junit:junit:4.13.2")
+
     implementation(project(Dependencies.module.baseUI))
     implementation(project(Dependencies.module.core))
     implementation(project(Dependencies.module.utils))
